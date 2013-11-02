@@ -19,10 +19,9 @@ NewReader.Routers.Feeds = Backbone.Router.extend({
 		this._swapView(view);
 	},
 
-	entryShow: function(id) {
+	entryShow: function(feedId, entryId) {
 		view =  new NewReader.Views.EntryShow({
-			feed: NewReader.feeds.get(:feedId),
-      model: this.feed.entries.get(:entryId)
+      model: NewReader.feeds.get(feedId).entries.get(entryId)
 		});
 		this._swapView(view);
 	},

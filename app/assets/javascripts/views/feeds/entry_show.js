@@ -1,10 +1,12 @@
 NewReader.Views.EntryShow = Backbone.View.extend({
-  initialize: function(options) {
-  	this.feed = options.feed
-  },
+	template: JST["entries/show"],
 
 	render: function() {
-		console.log(this.feed);
-		console.log(this.model);
+		var renderedContent = this.template({
+			entry: this.model
+		});
+
+		this.$el.html(renderedContent)
+		return this;
 	}
 })
